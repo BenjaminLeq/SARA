@@ -4,7 +4,7 @@
 #include <ButtonConstants.au3>
 #include <EditConstants.au3>
 
-Opt("Author", "Benjamin LEQU")
+Opt("Author", "Benjamin LEQ")
 Opt("Version", "1.0.3")
 
 Global $destinationFolder, $documents, $downloads, $pictures, $desktop, $edgeFavorites, $firefoxFavorites, $outlookSignatures, $stickyNotes, $openOffice, $libreOffice, $wordPerfect, $progressBar
