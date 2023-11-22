@@ -10,7 +10,7 @@ Outils de sauvegarde et de restauration de données
 
 Une fois la sauvegarde terminée, cliquez sur "Ouvrir le dossier" 'correspond au dossier de destination" afin de vérifier son contenu.
 
-##Restauration
+## Restauration
 - Cliquez sur "Choisir le dossier" (correspond au dossier source qui contient tous les sous dossiers de la sauvegarde).
 - CLiquez sur "Restaurer" pour lancer la restauration.
 
