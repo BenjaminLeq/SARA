@@ -4,7 +4,7 @@
 #include <ButtonConstants.au3>
 #include <EditConstants.au3>
 
-Opt("Author", "Benjamin LEQUEUX")
+Opt("Author", "Benjamin LEQU")
 Opt("Version", "1.0.3")
 
 Global $destinationFolder, $documents, $downloads, $pictures, $desktop, $edgeFavorites, $firefoxFavorites, $outlookSignatures, $stickyNotes, $openOffice, $libreOffice, $wordPerfect, $progressBar
@@ -366,7 +366,7 @@ EndFunc
 
 Func ShowInfoDialog()
     Global $infoDialog = GUICreate("À propos", 480, 360)
-    GUICtrlCreateLabel("Auteur: Benjamin Lequeux" & @CRLF & "Version: 1.0.0.3" & @CRLF & "------------------------------------------------------------"  & @CRLF & "Documents : %userprofile%\Documents" & @CRLF & "Téléchargements : %userprofile%\Downloads" & @CRLF & "Images : %userprofile%\Pictures" & @CRLF & "Bureau : %userprofile%\Desktop" & @CRLF & "Fav Edge : %userprofile%\AppData\Local\Microsoft\Edge\User Data\Default" & @CRLF & "Fav Firefox : %userprofile%\AppData\Roaming\Mozilla\Firefox\Profiles" & @CRLF & "Signatures : %userprofile%\AppData\Roaming\Microsoft\Signatures" & @CRLF & "Sticky Notes : %userprofile%\AppData\Roaming\Microsoft\Sticky Notes" & @CRLF & "OpenOffice : %userprofile%\AppData\Roaming\OpenOffice.org\3\user\autotext" & @CRLF & "OpenOffice : %userprofile%\AppData\Roaming\OpenOffice.org\3\user\autocorr" & @CRLF & "LibreOffice : %userprofile%\AppData\Roaming\LibreOffice\4\user\autotext" & @CRLF & "LibreOffice : %userprofile%\AppData\Roaming\LibreOffice\4\user\autocorr" & @CRLF &  "WordPerfect : %userprofile%\AppData\Roaming\Corel\PerfectExpert\12\Modèle WP personnalisés" & @CRLF & "Carnet Addr : %userprofile%\AppData\Local\Microsoft\outlook", 10, 10, 465, 290)
+    GUICtrlCreateLabel("Auteur: Benjamin Leq" & @CRLF & "Version: 1.0.0.3" & @CRLF & "------------------------------------------------------------"  & @CRLF & "Documents : %userprofile%\Documents" & @CRLF & "Téléchargements : %userprofile%\Downloads" & @CRLF & "Images : %userprofile%\Pictures" & @CRLF & "Bureau : %userprofile%\Desktop" & @CRLF & "Fav Edge : %userprofile%\AppData\Local\Microsoft\Edge\User Data\Default" & @CRLF & "Fav Firefox : %userprofile%\AppData\Roaming\Mozilla\Firefox\Profiles" & @CRLF & "Signatures : %userprofile%\AppData\Roaming\Microsoft\Signatures" & @CRLF & "Sticky Notes : %userprofile%\AppData\Roaming\Microsoft\Sticky Notes" & @CRLF & "OpenOffice : %userprofile%\AppData\Roaming\OpenOffice.org\3\user\autotext" & @CRLF & "OpenOffice : %userprofile%\AppData\Roaming\OpenOffice.org\3\user\autocorr" & @CRLF & "LibreOffice : %userprofile%\AppData\Roaming\LibreOffice\4\user\autotext" & @CRLF & "LibreOffice : %userprofile%\AppData\Roaming\LibreOffice\4\user\autocorr" & @CRLF &  "WordPerfect : %userprofile%\AppData\Roaming\Corel\PerfectExpert\12\Modèle WP personnalisés" & @CRLF & "Carnet Addr : %userprofile%\AppData\Local\Microsoft\outlook", 10, 10, 465, 290)
     GUICtrlSetFont(-1, 10, 400, 0, "Arial")
     $closeButton = GUICtrlCreateButton("Fermer", 190, 310, 100, 30, $BS_DEFPUSHBUTTON)
     GUISetState(@SW_SHOW, $infoDialog)
