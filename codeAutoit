@@ -4,15 +4,15 @@
 #include <ButtonConstants.au3>
 #include <EditConstants.au3>
 
-Opt("Author", "Benjamin LEQ")
-Opt("Version", "1.0.3")
+Opt("Author", "Benjamin LEQUEUX")
+Opt("Version", "1.1.0.1")
 
 Global $destinationFolder, $documents, $downloads, $pictures, $desktop, $edgeFavorites, $firefoxFavorites, $outlookSignatures, $stickyNotes, $openOffice, $libreOffice, $wordPerfect, $progressBar
 
-GUICreate("Save Your Work (SYW)", 450, 250)
+GUICreate("Save Your Work (SYW)", 450, 350)
 
 ; Créer l'onglet Sauvegarde
-Global $tab = GUICtrlCreateTab(10, 10, 430, 230)
+Global $tab = GUICtrlCreateTab(10, 10, 430, 330)
 Global $tabItem1 = GUICtrlCreateTabItem("Sauvegarde")
 
 ; Label pour indiquer la destination
@@ -22,36 +22,48 @@ GUICtrlCreateLabel("Destination:", 15, 43, 80, 20)
 $destinationInput = GUICtrlCreateInput("", 90, 40, 220, 20)
 $destinationButton = GUICtrlCreateButton("Choisir le dossier", 320, 40, 100, 20)
 
+; Créer le groupbox "Dossiers"
+GUICtrlCreateGroup("Dossiers", 15, 70, 415, 50)
 ; Cases à cocher pour les dossiers à sauvegarder
-$documents = GUICtrlCreateCheckbox("Documents", 15, 70, 100, 20)
-$downloads = GUICtrlCreateCheckbox("Téléchargements", 120, 70, 100, 20)
-$pictures = GUICtrlCreateCheckbox("Images", 230, 70, 100, 20)
-$desktop = GUICtrlCreateCheckbox("Bureau", 340, 70, 90, 20)
+$documents = GUICtrlCreateCheckbox("Documents", 25, 90, 90, 20)
+$downloads = GUICtrlCreateCheckbox("Téléchargements", 120, 90, 100, 20)
+$pictures = GUICtrlCreateCheckbox("Images", 230, 90, 90, 20)
+$desktop = GUICtrlCreateCheckbox("Bureau", 340, 90, 80, 20)
 
+; Créer le groupbox "Favoris"
+GUICtrlCreateGroup("Favoris", 15, 120, 415, 50)
 ; Cases à cocher pour les favoris et la signature
-$edgeFavorites = GUICtrlCreateCheckbox("Favoris Edge", 15, 100, 100, 20)
-$firefoxFavorites = GUICtrlCreateCheckbox("Favoris Firefox", 120, 100, 100, 20)
-$outlookSignatures = GUICtrlCreateCheckbox("Outlook Signatures", 230, 100, 110, 20)
-$stickyNotes = GUICtrlCreateCheckbox("Sticky Notes", 340, 100, 80, 20)
+$edgeFavorites = GUICtrlCreateCheckbox("Favoris Edge", 25, 140, 90, 20)
+$firefoxFavorites = GUICtrlCreateCheckbox("Favoris Firefox", 120, 140, 90, 20)
+$chromeFavorites = GUICtrlCreateCheckbox("Favoris Chrome", 230, 140, 90, 20)
 
+; Créer le groupbox "Office"
+GUICtrlCreateGroup("Office", 15, 170, 415, 50)
 ; Nouvelles cases à cocher
-$openOffice = GUICtrlCreateCheckbox("Open Office", 15, 130, 100, 20)
-$libreOffice = GUICtrlCreateCheckbox("Libre Office", 120, 130, 100, 20)
-$wordPerfect = GUICtrlCreateCheckbox("WordPerfect", 230, 130, 100, 20)
-$outlookAddr = GUICtrlCreateCheckbox("Carnet Addr", 340, 130, 80, 20)
+$openOffice = GUICtrlCreateCheckbox("Open Office", 25, 190, 90, 20)
+$libreOffice = GUICtrlCreateCheckbox("Libre Office", 120, 190, 100, 20)
+$wordPerfect = GUICtrlCreateCheckbox("WordPerfect", 230, 190, 100, 20)
+$msOffice = GUICtrlCreateCheckbox("MS Office", 340, 190, 80, 20)
+
+; Créer le groupbox "Autres"
+GUICtrlCreateGroup("Autres", 15, 220, 415, 50)
+; Cases à cocher
+$stickyNotes = GUICtrlCreateCheckbox("Sticky Notes", 25, 240, 80, 20)
+$outlookAddr = GUICtrlCreateCheckbox("Carnet Addr", 120, 240, 80, 20)
+$outlookSignatures = GUICtrlCreateCheckbox("Outlook Signatures", 230, 240, 100, 20)
 
 ; Barre de progression
-$progressBar = GUICtrlCreateProgress(15, 160, 410, 20)
+$progressBar = GUICtrlCreateProgress(15, 280, 410, 20)
 GUICtrlSetData(-1, 0) ; initialiser à 0%
 
 ; Bouton pour sélectionner tous les éléments
-$selectAllButton = GUICtrlCreateButton("Sélectionner Tout", 15, 200, 100, 30)
+$selectAllButton = GUICtrlCreateButton("Sélectionner Tout", 15, 305, 100, 30)
 
 ; Bouton de sauvegarde
-$backupButton = GUICtrlCreateButton("Sauvegarder", 130, 200, 100, 30)
+$backupButton = GUICtrlCreateButton("Sauvegarder", 130, 305, 100, 30)
 
 ; Bouton pour ouvrir le dossier
-$openFolderButton = GUICtrlCreateButton("Ouvrir le dossier", 245, 200, 100, 30)
+$openFolderButton = GUICtrlCreateButton("Ouvrir le dossier", 245, 305, 100, 30)
 
 GUICtrlCreateTabItem("")
 
@@ -75,7 +87,7 @@ $restoreButton = GUICtrlCreateButton("Restaurer", 160, 100, 100, 30)
 GUICtrlCreateTabItem("")
 
 ; Bouton "?" pour afficher les informations
-$infoButton = GUICtrlCreateButton("?", 410, 215, 20, 20)
+$infoButton = GUICtrlCreateButton("?", 405, 305, 20, 20)
 
 GUISetState(@SW_SHOW)
 
@@ -104,11 +116,13 @@ While 1
             GUICtrlSetState($desktop, $selectAllState ? $GUI_CHECKED : $GUI_UNCHECKED)
             GUICtrlSetState($edgeFavorites, $selectAllState ? $GUI_CHECKED : $GUI_UNCHECKED)
             GUICtrlSetState($firefoxFavorites, $selectAllState ? $GUI_CHECKED : $GUI_UNCHECKED)
+			GUICtrlSetState($chromeFavorites, $selectAllState ? $GUI_CHECKED : $GUI_UNCHECKED)
             GUICtrlSetState($outlookSignatures, $selectAllState ? $GUI_CHECKED : $GUI_UNCHECKED)
             GUICtrlSetState($stickyNotes, $selectAllState ? $GUI_CHECKED : $GUI_UNCHECKED)
             GUICtrlSetState($openOffice, $selectAllState ? $GUI_CHECKED : $GUI_UNCHECKED)
             GUICtrlSetState($libreOffice, $selectAllState ? $GUI_CHECKED : $GUI_UNCHECKED)
             GUICtrlSetState($wordPerfect, $selectAllState ? $GUI_CHECKED : $GUI_UNCHECKED)
+			GUICtrlSetState($msOffice, $selectAllState ? $GUI_CHECKED : $GUI_UNCHECKED)
 			GUICtrlSetState($outlookAddr, $selectAllState ? $GUI_CHECKED : $GUI_UNCHECKED)
 				
 		Case $backupButton
@@ -158,11 +172,13 @@ Func RestoreData()
     If GUICtrlRead($desktop) = 1 Then $totalSteps += 1
     If GUICtrlRead($edgeFavorites) = 1 Then $totalSteps += 1
     If GUICtrlRead($firefoxFavorites) = 1 Then $totalSteps += 1
+	If GUICtrlRead($chromeFavorites) = 1 Then $totalSteps += 1
     If GUICtrlRead($outlookSignatures) = 1 Then $totalSteps += 1
     If GUICtrlRead($stickyNotes) = 1 Then $totalSteps += 1
     If GUICtrlRead($openOffice) = 1 Then $totalSteps += 2
     If GUICtrlRead($libreOffice) = 1 Then $totalSteps += 2
     If GUICtrlRead($wordPerfect) = 1 Then $totalSteps += 1
+	If GUICtrlRead($msOffice) = 1 Then $totalSteps += 2
 	If GUICtrlRead($outlookAddr) = 1 Then $totalSteps += 1 
 
     ; Vérifier les cases à cocher et restaurer les dossiers sélectionnés
@@ -201,6 +217,12 @@ Func RestoreData()
         $currentStep += 1
         UpdateRestoreProgressBar($currentStep, $totalSteps)
     EndIf
+	
+	If GUICtrlRead($chromeFavorites) = 1 Then
+        RestoreFolder($sourceFolder & "\ChromeFavorites", @LocalAppDataDir & "\Google\Chrome\User Data\Default")
+        $currentStep += 1
+        UpdateRestoreProgressBar($currentStep, $totalSteps)
+    EndIf
 
     If GUICtrlRead($outlookSignatures) = 1 Then
         RestoreFolder($sourceFolder & "\OutlookSignatures", @AppDataDir & "\Microsoft\Signatures")
@@ -231,6 +253,13 @@ Func RestoreData()
     If GUICtrlRead($wordPerfect) = 1 Then
         RestoreFolder($sourceFolder & "\WordPerfect_Models", @AppDataDir & "\Corel\PerfectExpert\12\modèles WP personnalisés")
         $currentStep += 1
+        UpdateRestoreProgressBar($currentStep, $totalSteps)
+    EndIf
+	
+	If GUICtrlRead($msOffice) = 1 Then
+        RestoreFolder($sourceFolder & "\Microsoft\UProof", @AppDataDir & "\Microsoft\UProof")
+        RestoreFolder($sourceFolder & "\Microsoft\Spelling\fr-FR", @AppDataDir & "\Microsoft\Spelling\fr-FR")
+        $currentStep += 2
         UpdateRestoreProgressBar($currentStep, $totalSteps)
     EndIf
 	
@@ -269,11 +298,13 @@ Func BackupData()
     If GUICtrlRead($desktop) = 1 Then $totalSteps += 1
     If GUICtrlRead($edgeFavorites) = 1 Then $totalSteps += 1
     If GUICtrlRead($firefoxFavorites) = 1 Then $totalSteps += 1
+	If GUICtrlRead($chromeFavorites) = 1 Then $totalSteps += 1
     If GUICtrlRead($outlookSignatures) = 1 Then $totalSteps += 1 ; Ajout pour Outlook Signatures
     If GUICtrlRead($stickyNotes) = 1 Then $totalSteps += 1 ; Ajout pour Sticky Notes
     If GUICtrlRead($openOffice) = 1 Then $totalSteps += 2 ; Ajout pour Open Office (2 dossiers)
     If GUICtrlRead($libreOffice) = 1 Then $totalSteps += 2 ; Ajout pour Libre Office (2 dossiers)
     If GUICtrlRead($wordPerfect) = 1 Then $totalSteps += 1 ; Ajout pour WordPerfect
+	If GUICtrlRead($msOffice) = 1 Then $totalSteps += 2 ;
 	If GUICtrlRead($outlookAddr) = 1 Then $totalSteps += 1 ; Ajout pour Outlook Carnet d'Adresses
 
     ; Vérifier les cases à cocher et sauvegarder les dossiers sélectionnés
@@ -312,6 +343,12 @@ Func BackupData()
         $currentStep += 1
         UpdateProgressBar($currentStep, $totalSteps)
     EndIf
+	
+	If GUICtrlRead($chromeFavorites) = 1 Then
+        BackupFolder(@LocalAppDataDir & "\Google\Chrome\User Data\Default", $destinationFolder & "\ChromeFavorites")
+        $currentStep += 1
+        UpdateProgressBar($currentStep, $totalSteps)
+    EndIf
 
     If GUICtrlRead($outlookSignatures) = 1 Then
         BackupFolder(@AppDataDir & "\Microsoft\Signatures", $destinationFolder & "\OutlookSignatures")
@@ -345,6 +382,13 @@ Func BackupData()
         UpdateProgressBar($currentStep, $totalSteps)
     EndIf
 	
+	If GUICtrlRead($msOffice) = 1 Then
+		BackupFolder(@AppDataDir & "\Microsoft\UProof", $destinationFolder & "\Microsoft\UProof")
+        BackupFolder(@AppDataDir & "\Microsoft\Spelling\fr-FR", $destinationFolder & "\Microsoft\Spelling\fr-FR")
+        $currentStep += 2
+        UpdateProgressBar($currentStep, $totalSteps)
+    EndIf
+	
 	If GUICtrlRead($outlookAddr) = 1 Then
 		BackupFolder(@LocalAppDataDir & "\Microsoft\Outlook", $destinationFolder & "\OutlookAddr")
 		$currentStep += 1
@@ -365,10 +409,10 @@ Func UpdateProgressBar($current, $total)
 EndFunc
 
 Func ShowInfoDialog()
-    Global $infoDialog = GUICreate("À propos", 480, 360)
-    GUICtrlCreateLabel("Auteur: Benjamin Leq" & @CRLF & "Version: 1.0.0.3" & @CRLF & "------------------------------------------------------------"  & @CRLF & "Documents : %userprofile%\Documents" & @CRLF & "Téléchargements : %userprofile%\Downloads" & @CRLF & "Images : %userprofile%\Pictures" & @CRLF & "Bureau : %userprofile%\Desktop" & @CRLF & "Fav Edge : %userprofile%\AppData\Local\Microsoft\Edge\User Data\Default" & @CRLF & "Fav Firefox : %userprofile%\AppData\Roaming\Mozilla\Firefox\Profiles" & @CRLF & "Signatures : %userprofile%\AppData\Roaming\Microsoft\Signatures" & @CRLF & "Sticky Notes : %userprofile%\AppData\Roaming\Microsoft\Sticky Notes" & @CRLF & "OpenOffice : %userprofile%\AppData\Roaming\OpenOffice.org\3\user\autotext" & @CRLF & "OpenOffice : %userprofile%\AppData\Roaming\OpenOffice.org\3\user\autocorr" & @CRLF & "LibreOffice : %userprofile%\AppData\Roaming\LibreOffice\4\user\autotext" & @CRLF & "LibreOffice : %userprofile%\AppData\Roaming\LibreOffice\4\user\autocorr" & @CRLF &  "WordPerfect : %userprofile%\AppData\Roaming\Corel\PerfectExpert\12\Modèle WP personnalisés" & @CRLF & "Carnet Addr : %userprofile%\AppData\Local\Microsoft\outlook", 10, 10, 465, 290)
+    Global $infoDialog = GUICreate("À propos", 480, 400)
+    GUICtrlCreateLabel("Auteur: Benjamin Lequeux" & @CRLF & "Version: 1.1.0.1" & @CRLF & "------------------------------------------------------------"  & @CRLF & "Documents : %userprofile%\Documents" & @CRLF & "Téléchargements : %userprofile%\Downloads" & @CRLF & "Images : %userprofile%\Pictures" & @CRLF & "Bureau : %userprofile%\Desktop" & @CRLF & "Fav Edge : %userprofile%\AppData\Local\Microsoft\Edge\User Data\Default" & @CRLF & "Fav Firefox : %userprofile%\AppData\Roaming\Mozilla\Firefox\Profiles" & @CRLF & "Fav Chrome : %userprofile%\AppData\Local\Google\Chrome\User Data\Default" & @CRLF & "Signatures : %userprofile%\AppData\Roaming\Microsoft\Signatures" & @CRLF & "Sticky Notes : %userprofile%\AppData\Roaming\Microsoft\Sticky Notes" & @CRLF & "OpenOffice : %userprofile%\AppData\Roaming\OpenOffice.org\3\user\autotext" & @CRLF & "OpenOffice : %userprofile%\AppData\Roaming\OpenOffice.org\3\user\autocorr" & @CRLF & "LibreOffice : %userprofile%\AppData\Roaming\LibreOffice\4\user\autotext" & @CRLF & "LibreOffice : %userprofile%\AppData\Roaming\LibreOffice\4\user\autocorr" & @CRLF & "MS Office: %userprofile%\AppData\Roaming\Microsoft\UProof" & @CRLF & "MS Office: %userprofile%\AppData\Roaming\Microsoft\Spelling\fr-FR" & @CRLF &  "WordPerfect : %userprofile%\AppData\Roaming\Corel\PerfectExpert\12\Modèle WP personnalisés" & @CRLF & "Carnet Addr : %userprofile%\AppData\Local\Microsoft\outlook", 10, 10, 465, 350)
     GUICtrlSetFont(-1, 10, 400, 0, "Arial")
-    $closeButton = GUICtrlCreateButton("Fermer", 190, 310, 100, 30, $BS_DEFPUSHBUTTON)
+    $closeButton = GUICtrlCreateButton("Fermer", 190, 360, 100, 30, $BS_DEFPUSHBUTTON)
     GUISetState(@SW_SHOW, $infoDialog)
 
     While 1
