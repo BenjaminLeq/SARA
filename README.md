@@ -21,3 +21,5 @@ La fenêtre "A propos" vous affiche à quoi correspondent les dossiers sauvegard
 
 ![image](https://github.com/BenjaminLeq/SaveYourWork/assets/85110287/f28e2241-b351-426b-8447-ec313a4114a0)
 
+## Note
+Pensez à télécharger le dossier "icones" et à le mettre avec l'éxecutable sinon ça ne fonctionnera pas.
