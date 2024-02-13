@@ -16,7 +16,7 @@ Save And Restore Application : Outil de sauvegarde et de restauration de donnée
 
 ![image](https://github.com/BenjaminLeq/SARA/assets/85110287/f2a72a9f-26ee-445b-a0b6-33193c2ae319)
 
-- Dans l'onglet "Info" vous obtenez les informations quant à la taille et nombre d'élémenrs à restaurer.
+- Dans l'onglet "Info" vous obtenez les informations quant à la taille et nombre d'éléments à restaurer.
 
 ![image](https://github.com/BenjaminLeq/SARA/assets/85110287/b8218507-dc44-4e08-9324-001d0994f6f8)
 
@@ -33,7 +33,7 @@ Save And Restore Application : Outil de sauvegarde et de restauration de donnée
 - Vous pouvez supprimer un élément de la liste en le sélectionnant et en cliquant sur la corbeille.
 
 ## Sauvegarde Planifiée
-- Une fois le dossier de destination sélectionné et les éléments à sauvegarder cochés ou ajouter à la liste (celon l'onglet où vous êtes), cliquez sur "Créer une tâche planifiée",
+- Une fois le dossier de destination sélectionné et les éléments à sauvegarder cochés ou ajouter à la liste (selon l'onglet où vous êtes), cliquez sur "Créer une tâche planifiée",
 - Cela va créer un fichier BATCH à l'emplacement l'exécutable,
 
 ![image](https://github.com/BenjaminLeq/SARA/assets/85110287/ce074b4b-b0c4-42e2-83d4-f1552b38e5e7)
@@ -51,4 +51,4 @@ Save And Restore Application : Outil de sauvegarde et de restauration de donnée
 ![image](https://github.com/BenjaminLeq/SARA/assets/85110287/793177e7-7578-4b60-8e70-0f6e8f684fea)
 
 ## Note
-Pensez à télécharger le dossier "icones" et à le mettre avec l'éxecutable sinon ça ne fonctionnera pas.
+Pensez à télécharger le dossier "icones" et à le mettre avec l'exécutable sinon ça ne fonctionnera pas.
