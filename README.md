@@ -49,7 +49,7 @@ Save And Restore Application : Outil de sauvegarde et de restauration de donnée
 - La fenêtre "A propos" vous affiche à quoi correspondent les dossiers sauvegardés (chemin), les boutons et vous affiche les nouveautés de la mise à jour.
 - Vous pouvez téléchager le contenu au format .TXT.
 
-![image](https://github.com/BenjaminLeq/SARA/assets/85110287/f062c15c-66ad-4872-aa42-18e1bbf001de)
+![image](https://github.com/BenjaminLeq/SARA/assets/85110287/a8dea64d-9ebe-44a7-9617-9cbdf94df41f)
 
 ## Note
 Pensez à télécharger le dossier "icones" et à le mettre avec l'exécutable sinon ça ne fonctionnera pas.
