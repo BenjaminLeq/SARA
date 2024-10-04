@@ -53,3 +53,6 @@ Save And Restore Application : Outil de sauvegarde et de restauration de donnée
 
 ## Note
 Pensez à télécharger le dossier "icones" et à le mettre avec l'exécutable sinon ça ne fonctionnera pas.
+
+## Version
+**1.6.2.2** : Traduction en anglais de l'application et correction orthographe.
