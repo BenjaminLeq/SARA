@@ -24,7 +24,7 @@ Pour l'installation dans un dossier comme *C:\Program Files (x86)* ou encore *C:
 
 ![image](https://github.com/user-attachments/assets/42482488-fd0c-4ffa-8a4c-6bb626eb0e0b)
 
-- Cliquez sur "Valider" pour lancer la restauration. Cela ne fonctionne que sur les éléments de l'onglet "Sauv. Rest".
+- Cliquez sur "Valider" pour lancer la restauration. Cela ne fonctionne que sur les éléments de l'onglet "Auto.".
 
 ## Sauvegarde Personnalisée
 
